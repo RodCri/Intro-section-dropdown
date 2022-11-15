@@ -68,9 +68,12 @@ body{
 .nav__item{
   width: 80%;
   margin: 0 auto;
-  color: var(--almost-black);
   cursor: pointer;
   padding: 20px 0;
+  color: var(--medium-gray);
+}
+.nav__item:hover{
+  color: var(--almost-black);
 }
 .nav__item:has(.nav__parent){
   padding: 0;
@@ -94,24 +97,206 @@ body{
   gap: 1.3em;
   padding: 20px 0;
 }
+.nav__parent:focus-visible > .nav__arrow{
+  transform: rotate(190deg);
+}
 .nav__link{
   text-decoration: none;
-  color: var(--almost-black);
+  color: var(--medium-gray);
   list-style: none;
+}
+.nav__link:hover{
+  color: var(--almost-black);
 }
 .nav__login{
   width: 90%; 
   margin: 0 auto;
   text-align: center;
 }
+.nav__login:hover{
+  color: var(--almost-black);
+}
 .nav__login--border{
   border-radius: 1em;
   margin-top: 20px;
-  border: 1px solid var(--medium-gray);
+  border: 1.5px solid var(--medium-gray);
+}
+.nav__login--border:hover{
+  cursor: pointer;
+  border: 1.5px solid var(--almost-black);
 }
 .nav__sign{
   display: inline-block;
   color: var(--medium-gray);
   padding: .7em 0;
   text-decoration: none;
+}
+.nav__sign:hover{
+  color: var(--almost-black);
+}
+.main__grid{
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 5% 1fr 5%;
+  grid-template-areas: 
+  "img img img "
+  ".   text . ";
+}
+.main__article{
+  padding: 55px 0;
+  text-align: center;
+  grid-area: text;
+}
+.main__title{
+  font-size: 2rem;
+}
+.main__title br{
+  display: none;
+}
+.main__paragraph{
+  line-height: 1.5;
+  margin: 1.5em 0;
+  color: var(--medium-gray);
+}
+.main__cta{
+  background-color: var(--almost-black);
+  color: #fff;
+  display: inline-block;
+  padding: .8em 1.5em;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-bottom: 2em;
+  border: 1px solid var(--almost-black);
+}
+.main__cta:hover{
+  color: var(--almost-black);
+  background-color: #fff;
+  border: 1px solid var(--almost-black);
+  transition: .3s;
+}
+.main__picture{
+  grid-area: img;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.main__img{
+  width: 100%;
+}
+.main__brands{
+  display: grid;
+  gap: 1em;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(30px, 100px);
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+.main__brand{
+  width: 100%;
+}
+.rotateArrow{
+  transform: rotate(180deg);
+}
+@media(min-width:768px){
+  .nav{
+    gap: 2em;
+    overflow: visible;
+    padding: 50px 0 0;
+  }
+  .nav__hamburguer{
+    display: none;
+  }
+  .nav__overlay{
+    position: unset;
+    background-color: transparent;
+    opacity: 1;
+    pointer-events: unset;
+    flex: 1;
+  }
+  .nav__menu{
+    position: unset;
+    width: 100%;
+    max-width: unset;
+    background-color: unset;
+    padding: 0;
+    overflow: unset;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+  .nav__item{
+    width: max-content;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .nav__inner{
+    position: absolute;
+    height: auto;
+    left: 0;
+    padding: 0;
+    width: max-content;
+    background-color: #000;
+    height: auto;
+    padding: 2em;
+    background-color: #fff;
+    z-index: 1000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+    transition: opacity .3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .nav__inner--show{
+    opacity: 1;
+    pointer-events: unset;
+  }
+  .nav__login{
+    width: max-content;
+    margin: 0;
+    margin-left: auto;
+  }
+  .nav__login--border{
+    margin: 0;
+    padding: 0 1.5em;
+  }
+  .main__grid{
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 80%;
+    gap: 2em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "text img";
+    padding: 70px 0;
+  }
+  .main__picture{
+    max-height: 500px;
+  }
+  .main__img{
+    height: 100%;
+  }
+  .main__article{
+    text-align: left;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .main__brands{
+    margin: auto 0 0 0;
+  }
+  .main__title{
+    font-size: 4.8rem;
+  }
+  .main__title br{
+    display: block;
+  }
+  .main__texts{
+    margin: auto 0;
+  }
+  .main__paragraph{
+    margin: 2em 0;
+    width: 450px;
+  }
 }
